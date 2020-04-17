@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Textstatistics {
 
@@ -19,7 +20,7 @@ public class Textstatistics {
         this.fileName = fileName;
     }
 
-    public void wordCount(){
+    public HashMap<String, Integer> wordCount(){
 
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(getClass().getClassLoader().getResourceAsStream(fileName))
@@ -31,5 +32,6 @@ public class Textstatistics {
                 .filter(w -> !w.isBlank())
                 .forEach(System.out::println);
 
+        return null; // TODO
     }
 }
