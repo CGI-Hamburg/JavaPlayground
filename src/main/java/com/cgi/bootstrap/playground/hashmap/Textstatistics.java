@@ -5,6 +5,10 @@ import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 public class Textstatistics {
 
@@ -13,25 +17,24 @@ public class Textstatistics {
     public static void main(String [] args){
         Textstatistics statistics = new Textstatistics("taucher.txt");
 
-        statistics.wordCount();
+        Map<String, Integer> wordCount = statistics.wordCount();
+        wordCount.forEach((k,v)->System.out.println(k+":"+v));
     }
 
     public Textstatistics(String fileName){
         this.fileName = fileName;
     }
 
-    public HashMap<String, Integer> wordCount(){
+    public Map<String, Integer> wordCount(){
 
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(getClass().getClassLoader().getResourceAsStream(fileName))
         );
 
-        reader
+        return reader
                 .lines()
-                .flatMap( l -> Arrays.stream(l.split("[:\\?,\\.\\-\\! \\t\\r\\n]")))
+                .flatMap( l -> Arrays.stream(l.split("[:\\?,\\.\\-–\\! \\t\\r\\n]")))
                 .filter(w -> !w.isBlank())
-                .forEach(System.out::println);
-
-        return null; // TODO
+                .collect(Collectors.toMap(w -> w, w -> 1, (k, v)-> v+1));
     }
 }
