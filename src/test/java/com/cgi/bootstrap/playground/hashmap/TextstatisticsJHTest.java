@@ -4,11 +4,11 @@ import java.util.HashMap;
 
 public class TextstatisticsJHTest {
     public static void main(String[] args) {
-        TextstatisticsJH statistics = new TextstatisticsJH("taucher.txt");
+        TextstatisticsJH statistics = new TextstatisticsJH ("taucher.txt");
         HashMap<String, Integer> wordCount = statistics.wordCount();
         System.out.println(wordCount);
 
-        assertEqual(wordCount.get("ist").intValue(),5);
+        assertEqual(wordCount.get("ist").intValue(),4);
 
     }
 

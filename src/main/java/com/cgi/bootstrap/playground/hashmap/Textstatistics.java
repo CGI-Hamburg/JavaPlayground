@@ -38,6 +38,7 @@ public class Textstatistics {
                 .lines()
                 .flatMap( l -> Arrays.stream(l.split("[:\\?,\\.\\-–\\! \\t\\r\\n]")))
                 .filter(w -> !w.isBlank())
+                .map(w -> w.toLowerCase())
                 .collect(Collectors.toMap(w -> w, w -> Integer.valueOf(1), (v1, v2)-> v1 + v2));
     }
 
@@ -48,6 +49,7 @@ public class Textstatistics {
         while(line!=null){
             String[] words = line.split("[:\\?,\\.\\-–\\! \\t\\r\\n]");
             for(String word:words){
+                word = word.toLowerCase();
                 if(!word.isBlank()){
                     wordCount.compute(word, (k, v) -> (v == null) ? 1 : v+1);
                 }
@@ -64,6 +66,7 @@ public class Textstatistics {
         while(line!=null){
             String[] words = line.split("[:\\?,\\.\\-–\\! \\t\\r\\n]");
             for(String word:words){
+                word = word.toLowerCase();
                 if(!word.isBlank()){
                     Integer count = wordCount.get(word);
                     count = count==null?1:count+1;

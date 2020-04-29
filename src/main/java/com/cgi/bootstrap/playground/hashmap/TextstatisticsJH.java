@@ -38,6 +38,7 @@ public class TextstatisticsJH {
                 .flatMap(l -> Arrays.stream(l.split("[:\\?,\\.\\-\\! \\t\\r\\n–]")))
                 .filter(w -> !w.isBlank())
                 .forEach(word -> {
+                    word = word.toLowerCase();
                     Integer count = wordCount.get(word);
                     if (Objects.isNull(count)) {
                         count = 1;
