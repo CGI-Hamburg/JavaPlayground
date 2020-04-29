@@ -2,19 +2,22 @@ package com.cgi.bootstrap.playground.hashmap;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TextstatisticsJH {
 
     private final String fileName;
+
 
     public static void main(String[] args) {
         TextstatisticsJH statistics = new TextstatisticsJH("taucher.txt");
 
         HashMap<String, Integer> wordCount = statistics.wordCount();
         System.out.println(wordCount);
+
+
     }
 
     public TextstatisticsJH(String fileName) {
@@ -24,6 +27,7 @@ public class TextstatisticsJH {
     public HashMap<String, Integer> wordCount() {
 
         HashMap<String, Integer> wordCount = new HashMap<>();
+        //HashMap<String, Integer> topTen = new HashMap<>();
 
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(getClass().getClassLoader().getResourceAsStream(fileName))
@@ -41,9 +45,12 @@ public class TextstatisticsJH {
                         count += 1;
                     }
                     wordCount.put(word, count);
+
                 });
 
 
         return wordCount;
     }
+
+
 }
