@@ -72,6 +72,7 @@ public class Textstatistics {
             }
             line = readLine(reader);
         }
+
         return wordCount;
     }
 
