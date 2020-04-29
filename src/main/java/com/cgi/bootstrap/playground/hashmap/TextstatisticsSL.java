@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Textstatistics {
+public class TextstatisticsSL {
 
     public static void main(String [] args){
         Textstatistics statistics = new Textstatistics();

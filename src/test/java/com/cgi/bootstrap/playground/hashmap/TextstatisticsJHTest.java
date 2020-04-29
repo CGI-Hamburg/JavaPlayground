@@ -8,8 +8,28 @@ public class TextstatisticsJHTest {
         HashMap<String, Integer> wordCount = statistics.wordCount();
         System.out.println(wordCount);
 
-        assert(wordCount.get("ist") == 7);
+        assertEqual(wordCount.get("ist").intValue(),5);
 
+    }
+
+    public static boolean assertEqual(Object a, Object b){
+        boolean equals = a.equals(b);
+        if(!equals){
+            System.out.println("Werte sind nicht gleich: " + a + " <> " + b); // TODO remove
+        } else {
+            System.out.println("werte sind gleich!");
+        }
+        return equals;
+    }
+
+    public static boolean assertEqual(int a, int b){
+        boolean equals = a == b;
+        if(!equals){
+            System.out.println("Werte sind nicht gleich: " + a + " == " + b); // TODO remove
+        } else {
+            System.out.println("werte sind gleich!");
+        }
+        return equals;
     }
 
 }
