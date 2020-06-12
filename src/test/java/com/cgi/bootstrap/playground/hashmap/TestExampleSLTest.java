@@ -3,16 +3,16 @@ package com.cgi.bootstrap.playground.hashmap;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import java.io.BufferedReader;
 import java.io.StringReader;
 import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
-public class TestExample {
+
+public class TestExampleSLTest {
 
     private Textstatistics statistics;
 
@@ -54,14 +54,14 @@ public class TestExample {
     }
 
     @Test
-    public void shouldCountUpperCaseWords(){
+    public void shouldCountBigWords() {
         // given
-        final BufferedReader reader = new BufferedReader(new StringReader("Es ist mir eine Freude. Und Freude ist toll."));
+        final BufferedReader reader = new BufferedReader(new StringReader("Es ist mir eine Freude. Und Sahne ist toll."));
 
         // when
         Map<String, Integer> wordCount = statistics.wordCount(reader);
 
         // then
-        assertEquals(2, wordCount.get("Freude").intValue());
+        assertEquals(1, wordCount.get("Sahne").intValue());
     }
 }

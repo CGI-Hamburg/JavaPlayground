@@ -31,14 +31,14 @@ public class Textstatistics {
         );
     }
 
-
+// hellooooo
     public Map<String, Integer> wordCount(BufferedReader reader){
 
         return reader
                 .lines()
                 .flatMap( l -> Arrays.stream(l.split("[:\\?,\\.\\-–\\! \\t\\r\\n]")))
                 .filter(w -> !w.isBlank())
-                .map(w -> w.toLowerCase())
+                .map(String::toLowerCase)
                 .collect(Collectors.toMap(w -> w, w -> Integer.valueOf(1), (v1, v2)-> v1 + v2));
     }
 
@@ -49,8 +49,8 @@ public class Textstatistics {
         while(line!=null){
             String[] words = line.split("[:\\?,\\.\\-–\\! \\t\\r\\n]");
             for(String word:words){
-                word = word.toLowerCase();
                 if(!word.isBlank()){
+                    word = word.toLowerCase();
                     wordCount.compute(word, (k, v) -> (v == null) ? 1 : v+1);
                 }
             }
@@ -66,8 +66,8 @@ public class Textstatistics {
         while(line!=null){
             String[] words = line.split("[:\\?,\\.\\-–\\! \\t\\r\\n]");
             for(String word:words){
-                word = word.toLowerCase();
                 if(!word.isBlank()){
+                    word = word.toLowerCase();
                     Integer count = wordCount.get(word);
                     count = count==null?1:count+1;
                     wordCount.put(word, count);
