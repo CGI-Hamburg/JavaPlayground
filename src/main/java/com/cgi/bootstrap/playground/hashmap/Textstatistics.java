@@ -79,7 +79,7 @@ public class Textstatistics {
         return wordCount;
     }
 
-    private String readLine(final BufferedReader reader)  {
+    protected String readLine(final BufferedReader reader)  {
         try {
             return reader.readLine();
         }catch(IOException x){
