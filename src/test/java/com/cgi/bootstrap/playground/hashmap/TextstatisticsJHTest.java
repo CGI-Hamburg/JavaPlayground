@@ -15,7 +15,7 @@ public class TextstatisticsJHTest {
     public static boolean assertEqual(Object a, Object b){
         boolean equals = a.equals(b);
         if(!equals){
-            System.out.println("Werte sind nicht gleich: " + a + " <> " + b); // TODO remove
+            System.out.println("Werte sind nicht gleich: " + a + " <> " + b);
         } else {
             System.out.println("werte sind gleich!");
         }
@@ -25,7 +25,7 @@ public class TextstatisticsJHTest {
     public static boolean assertEqual(int a, int b){
         boolean equals = a == b;
         if(!equals){
-            System.out.println("Werte sind nicht gleich: " + a + " == " + b); // TODO remove
+            System.out.println("Werte sind nicht gleich: " + a + " == " + b);
         } else {
             System.out.println("werte sind gleich!");
         }
