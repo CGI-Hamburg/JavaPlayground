@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -75,6 +76,25 @@ public class TextstatisticsSL {
         return wordCount;
     }
 
+    public Map<String, Integer> wordCountCaseInsensitive(BufferedReader reader){
+        Map<String, Integer> wordCount = new HashMap<>();
+
+        String line = readLine(reader);
+        while(line!=null){
+            String[] words = line.split("[:\\?,\\.\\-–\\! \\t\\r\\n]");
+            for(String word:words){
+                String lowercase = word.toLowerCase();
+                if(!word.isBlank()){
+                    Integer count = wordCount.get(lowercase);
+                    count = count==null?1:count+1;
+                    wordCount.put(lowercase, count);
+                }
+            }
+            line = readLine(reader);
+        }
+        return wordCount;
+    }
+
     private String readLine(final BufferedReader reader)  {
         try {
             return reader.readLine();
@@ -82,6 +102,4 @@ public class TextstatisticsSL {
             return null;
         }
     }
-
-
 }
