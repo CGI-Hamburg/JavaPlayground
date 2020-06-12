@@ -52,4 +52,16 @@ public class TestExample {
         assertEquals(2, wordCount.get("freude").intValue());
         assertEquals(1, wordCount.get("und").intValue());
     }
+
+    @Test
+    public void shouldCountUpperCaseWords(){
+        // given
+        final BufferedReader reader = new BufferedReader(new StringReader("Es ist mir eine Freude. Und Freude ist toll."));
+
+        // when
+        Map<String, Integer> wordCount = statistics.wordCount(reader);
+
+        // then
+        assertEquals(2, wordCount.get("Freude").intValue());
+    }
 }
